@@ -1,5 +1,10 @@
+// import Lightbox from "../components/Lightbox.view.component.js";
 import PostCard from "../components/PostCard.component.js";
-import { getAllPosts } from "../utils/utils.js";
+import {
+  getAllPosts,
+  getFeedElements,
+  addListenerToFeedElements,
+} from "../utils/utils.js";
 
 export default class HomePage {
   static async render() {
@@ -14,13 +19,14 @@ export default class HomePage {
     const postCards = firstToLoad.map((post) => {
       return PostCard.render(post);
     });
+
     const renderedHtml = postCards.join("");
     startIndex += postsPerPage;
 
-    const loadMore = () => {
+    const loadMore = async () => {
       let currentEndIndex = startIndex + postsPerPage;
+
       const morePosts = posts.slice(startIndex, currentEndIndex);
-      console.log(morePosts);
 
       morePosts.forEach((post) => {
         container.innerHTML += PostCard.render(post);
@@ -30,9 +36,16 @@ export default class HomePage {
       if (startIndex >= posts.length) {
         loadMoreBtn.classList.add("hidden");
       }
-      console.log(startIndex);
-    };
+      const elements = await getFeedElements();
+      addListenerToFeedElements(elements);
 
+      const closeModal = document.querySelector("#closeModal");
+
+      closeModal.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("myModal").style.display = "none";
+      });
+    };
     loadMoreBtn.addEventListener("click", loadMore);
 
     return `            

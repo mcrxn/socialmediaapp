@@ -173,3 +173,41 @@ input:checked + .slider:before {
 .hidden {
   display: none;
 }
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Position the modal */
+  z-index: 1; /* Make it appear on top of other elements */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scrolling if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+#closeModal {
+  position: fixed;
+  z-index: 2;
+  right: 10px;
+  top: 10px;
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+}
+/* Style for the modal content */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  max-height: 80%;
+}
+
+/* Style for the image inside the modal */
+.modal-content img {
+  width: 100%;
+  height: auto;
+}
+.display-modal {
+  display: block;
+}
