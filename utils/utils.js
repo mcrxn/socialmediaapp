@@ -33,9 +33,10 @@ export const themeSwitch = () => {
   try {
     const posts = document.querySelectorAll(".social-media-post");
     const header = document.querySelector(".header-container");
+    const loadMoreBtn = document.querySelector(".load-more");
     console.log(header);
     const isDarkTheme = document
-      .getElementById("layout-container")
+      .querySelector("body")
       .getAttribute("class")
       .split(" ")
       .includes("dark-theme");
@@ -44,6 +45,7 @@ export const themeSwitch = () => {
 
     posts.forEach((p) => {
       if (!p.classList.contains(".dark-theme") && isDarkTheme) {
+        loadMoreBtn.style.backgroundColor = "grey";
         header.style.backgroundColor = "grey";
         p.classList.add("dark-theme");
         // console.log(p);

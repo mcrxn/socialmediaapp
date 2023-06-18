@@ -7,12 +7,20 @@ export default class App {
     const themeSwitchBtn = document.getElementById("switch");
 
     themeSwitchBtn.addEventListener("click", () => {
-      document
-        .getElementById("layout-container")
-        .classList.toggle("dark-theme");
+      // document
+      //   .getElementById("layout-container")
+      //   .classList.toggle("dark-theme");
       document.querySelectorAll(".social-media-post").forEach((p) => {
         p.classList.toggle("dark-theme");
       });
+      // document
+      //   .querySelector(".header-container")
+      //   .classList.toggle("dark-theme");
+
+      const loadMoreBtn = document.querySelector(".load-more");
+      loadMoreBtn.classList.toggle("dark-theme");
+
+      document.querySelector("body").classList.toggle("dark-theme");
     });
 
     const elements = await getFeedElements();

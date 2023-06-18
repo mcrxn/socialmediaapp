@@ -83,6 +83,7 @@ input:checked + .slider:before {
   max-width: 700px;
   margin: 0 auto;
   padding: 20px;
+  border: 2px solid grey;
   border-radius: 5px;
   background-color: #7ed6ff;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.1);
@@ -149,7 +150,7 @@ input:checked + .slider:before {
   padding: 10px 20px;
   background-color: #337ab7;
   color: #fff;
-  border: none;
+  border: 1px solid white;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
@@ -227,5 +228,4 @@ body {
 }
 
 .social-media-post {
-  border: 2px solid grey;
 }
