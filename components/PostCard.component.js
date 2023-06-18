@@ -1,7 +1,7 @@
 export default class PostCard {
   static render({ ...post }) {
     return `
-        <div class="social-media-post">
+        <div class="social-media-post" id="social-media-post">
             <img src="${post.image}" alt="Social Media Post Image" id="post-img" class="postImg"/>
             <p class="caption">${post.caption}</p>
             <p class="source-type">

@@ -4,6 +4,7 @@ import {
   getAllPosts,
   getFeedElements,
   addListenerToFeedElements,
+  themeSwitch,
 } from "../utils/utils.js";
 
 export default class HomePage {
@@ -32,12 +33,15 @@ export default class HomePage {
         container.innerHTML += PostCard.render(post);
       });
 
+      const elements = await getFeedElements();
+      addListenerToFeedElements(elements);
+
+      themeSwitch();
+
       startIndex += postsPerPage;
       if (startIndex >= posts.length) {
         loadMoreBtn.classList.add("hidden");
       }
-      const elements = await getFeedElements();
-      addListenerToFeedElements(elements);
 
       const closeModal = document.querySelector("#closeModal");
 
